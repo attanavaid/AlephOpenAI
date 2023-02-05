@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aleph</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="foundation/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="foundation/css/foundation.css">
+    <link rel="stylesheet" href="foundation/css/app.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="title-bar" data-responsive-toggle="example-animated-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    
+    <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top hinge-out-from-top">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Aleph</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/help.html">Help</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-container homePage" id="app">
+      <div class="grid-x grid-padding-x" id="infoScreen">
+        <div class="large-12 cell">
+          <h2 id="alephTitle">Aleph</h2>
+        </div>
+        <div class="large-4 medium-4 small-4 cell">
+          <p class="columnTitle">
+            <i class="step fi-lightbulb size-14"></i>
+            <br/>
+            Examples
+          </p>
+          <div class="secondary callout button" id="suggestion1">
+            <p>"Explain quantum mechanics in simple terms" &#8594;</p>
+          </div>
+          <div class="secondary callout button" id="suggestion2">
+            <p>"Give me some ideas for a wedding anniversary" &#8594;</p>
+          </div>
+          <div class="secondary callout button" id="suggestion3">
+            <p>"How do I make an HTTP request in TypeScript" &#8594;</p>
+          </div>
+        </div>
+        <div class="large-4 medium-4 small-4 cell">
+          <p class="columnTitle">
+            <i class="step fi-shield size-14"></i>
+            <br/>
+            Capabilities
+          </p>
+          <div class="secondary callout">
+            <p>Remembers what user said earlier in the conversation</p>
+          </div>
+          <div class="secondary callout">
+            <p>Allows user to provide follow-up corrections</p>
+          </div>
+          <div class="secondary callout">
+            <p>Trained to decline inappropriate requests</p>
+          </div>
+        </div>
+        <div class="large-4 medium-4 small-4 cell">
+          <p class="columnTitle">
+            <i class="step fi-alert size-14"></i>
+            <br/>
+            Limitations
+          </p>
+          <div class="secondary callout">
+            <p>May occasionally generate incorrect information</p>
+          </div>
+          <div class="secondary callout">
+            <p>May occasionally produce harmful instructions or biased content</p>
+          </div>
+          <div class="secondary callout">
+            <p>Limited knowledge of world and events after 2021</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-x grid-padding-x">
+        <div id="chat_container">
+        </div>
+      </div>
+      
+      <form>
+        <div class="input-group">
+          <span class="input-group-label">Enter Prompt:</span>
+          <input class="input-group-field" type="text" placeholder="Explain quantum mechanics in simple terms." name="prompt">
+          <div class="input-group-button">
+            <input type="submit" class="button" value="Send">
+          </div>
+        </div>
+        <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+            <p style="font-size: 10px; text-align: center; margin: 0; padding: 0;">
+              Aleph Feb 4 Version. Personal Project Preview. The goal is to test the OpenAI API and how the AI system interacts.
+            </p>
+          </div>
+        </div>    
+      </form>
+
+
+    </div>
+
+    <script type="module" src="/main.js"></script>
+    <script type="text/javascript" src="foundation/js/app.js"></script>
+    <script src="foundation/js/vendor/jquery.js"></script>
+    <script src="foundation/js/vendor/what-input.js"></script>
+    <script src="foundation/js/vendor/foundation.js"></script>
+    <script src="foundation/js/app.js"></script>
+  </body>
+</html>
