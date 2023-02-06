@@ -1,0 +1,13 @@
+(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&s(i)}).observe(document,{childList:!0,subtree:!0});function r(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerpolicy&&(o.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?o.credentials="include":e.crossorigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=r(e);fetch(e.href,o)}})();const f="/assets/aleph-af3456af.svg",g="/assets/user-bcdeb18e.svg",a=document.querySelector("form"),c=document.querySelector("#chat_container"),m=document.querySelector("input[type=text]"),p=document.querySelector("#suggestion1"),y=document.querySelector("#suggestion2"),h=document.querySelector("#suggestion3");let d;function v(t){t.textContent="",d=setInterval(()=>{t.textContent+=".",t.textContent==="...."&&(t.textContent="")},300)}function S(t,n){let r=0,s=setInterval(()=>{r<n.length?(t.innerHTML+=n.charAt(r),r++):(clearInterval(s),window.scrollTo(0,document.body.scrollHeight))},20)}function b(){const t=Date.now(),r=Math.random().toString(16);return`id=${t}-${r}`}function u(t,n,r){return`
+      <div class="wrapper ${t&&"ai"}">
+        <div class="chat">
+          <div class="profile">
+            <img
+              src=${t?f:g}
+              alt="${t?"bot":"user"}"
+            />
+          </div>
+          <div class="message" id=${r}>${n}</div>
+        </div>
+      </div>
+    `}async function L(t){t.preventDefault(),infoScreen.style.display="none";const n=new FormData(a);c.innerHTML+=u(!1,n.get("prompt")),a.reset();const r=b();c.innerHTML+=u(!0," ",r),c.scrollTop=c.scrollHeight;const s=document.getElementById(r);v(s),window.scrollTo(0,document.body.scrollHeight);const e=await fetch("https://alephopenai.onrender.com",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt:n.get("prompt")})});if(clearInterval(d),s.innerHTML="",e.ok){const i=(await e.json()).bot.trim();S(s,i)}else{const o=e.text();s.innerHTML="Something went wrong. Please try again!",alert(o)}}const l=function(t){return function(n){n.preventDefault(),m.value=document.querySelector(`#suggestion${t} p`).innerHTML.replace(/"/g,"").slice(0,-1)}};p.addEventListener("click",l(1));y.addEventListener("click",l(2));h.addEventListener("click",l(3));a.addEventListener("submit",L);
