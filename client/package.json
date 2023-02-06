@@ -10,8 +10,6 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
-
-
   },
   "devDependencies": {
     "gh-pages": "^5.0.0",
